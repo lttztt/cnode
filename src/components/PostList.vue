@@ -1,7 +1,7 @@
 <template>
   <div class="post">
     <div class="loading" v-if="loadingShow">
-      Loading...
+      <img src="../assets/loading.gif">
     </div>
     <div class="postlist" v-else>
       <div class="list-nav-bar">
@@ -25,7 +25,7 @@
           <span :class="['topic-tab', {'top-tab': post.top}]">
             {{post | formatWord}}
           </span>
-          <a href="#" class="post-title">{{post.title}}</a>
+          <router-link :to="{name:'article', params: {id: post.id}}" class="post-title">{{post.title}}</router-link>
           <span class="last-active-time">{{post.last_reply_at | formatTime}}</span>
         </li>
       </ul>
@@ -44,10 +44,8 @@
     },
     beforeMount() {
       this.getPost().then(({data}) => {
-        setTimeout(() => {
-          this.postList = data.data;
-          this.loadingShow = false;
-        }, 2000);
+        this.postList = data.data;
+        this.loadingShow = false;
       })
     },
     methods: {
@@ -110,28 +108,39 @@
 
           .post-title
             color: #333
+            max-width: 70%
+            overflow: hidden
+            white-space: nowrap
+            text-overflow: ellipsis
 
     .postlist li:first-child
       border-top: none
     /* 顶部导航 */
+
     .list-nav-bar
       background: #f6f6f6
+
       ul
         display: flex
         padding: 10px 0 10px 10px
+
         li
           margin: 0 15px
           color: #80bd01
           padding: 3px 6px
           border-radius: 3px
+
           &.active
             background: #80bd01
             color: #fff
+
           a
             color: inherit
             font-size: 12px
+
             &:hover
               color: #00558f
+
     .last-active-time
       position: absolute
       font-size: 12px
