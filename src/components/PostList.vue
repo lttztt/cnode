@@ -16,9 +16,14 @@
       </div>
       <ul>
         <li v-for="post in postList">
-          <a href="#">
+          <router-link :to="{
+              name: 'userInfo',
+              params: {
+                name: post.author.loginname
+              }
+            }">
             <img :src="post.author.avatar_url" :title="post.author.loginname">
-          </a>
+          </router-link>
           <span class="count-wrap">
             <span class="reply-count">{{post.reply_count}}</span>/{{post.visit_count}}
           </span>

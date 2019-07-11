@@ -8,11 +8,11 @@
       <div class="panel">
         <div class="article-header">
           <h3 class="topic-full-title">{{post.title}}</h3>
-          <p>
-            <span>*发布于{{post.last_reply_at | formatTime}}</span>
-            <span>*作者{{post.author.loginname}}</span>
-            <span>*{{post.visit_count}}次浏览</span>
-            <span>*来自{{post | formatWord}}</span>
+          <p class="topic-tags">
+            <span> 发布于 {{post.last_reply_at | formatTime}}</span>
+            <span> 作者 {{post.author.loginname}}</span>
+            <span> {{post.visit_count}}次浏览</span>
+            <span> 来自 {{post | formatWord}}</span>
           </p>
         </div>
         <div class="article-content" v-html="post.content">
@@ -22,7 +22,14 @@
       <div class="panel reply-panel" v-if="post.replies.length > 0">
         <div class="reply-header">{{post.replies.length}} 回复</div>
         <div class="reply-area" v-for="(reply,index) in post.replies">
-          <img :src="reply.author.avatar_url" class="reply-avatar">
+          <router-link :to="{
+              name: 'userInfo',
+              params: {
+                name: reply.author.loginname
+              }
+            }" class="reply-avatar">
+            <img :src="reply.author.avatar_url">
+          </router-link>
           <div class="reply-info">
             <div class="info-title">{{reply.author.loginname}} <span
               class="reply-msg"><span>{{index + 1}}楼</span>*<span>{{reply.create_at | formatTime}}</span></span></div>
@@ -104,7 +111,7 @@
       padding: 10px
       display: flex
 
-      .reply-avatar
+      .reply-avatar img
         width: 30px
         height: 30px
         margin-right: 10px
@@ -120,4 +127,12 @@
         .reply-main
           margin-top: 10px
           padding-left: 10px
+
+  .topic-tags
+    font-size: 12px
+    color: #838383
+    span
+      margin: 0 5px
+      &::before
+        content: '•'
 </style>

@@ -5,6 +5,7 @@ Vue.use(Router);
 
 import PostList from './components/PostList'
 import Article from './components/Article'
+import UserInfo from './components/UserInfo'
 export default new Router({
   routes: [
     {
@@ -19,6 +20,13 @@ export default new Router({
       name: 'article',
       components: {
         main: Article
+      }
+    },
+    {
+      path: '/userInfo/:name',
+      name: 'userInfo',
+      components: {
+        main: UserInfo
       }
     }
   ]
