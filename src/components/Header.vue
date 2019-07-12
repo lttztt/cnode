@@ -1,6 +1,8 @@
 <template>
   <div class="header">
-    <img src="../assets/logo.svg" alt="cnode">
+    <router-link to="/">
+      <img src="../assets/logo.svg" alt="cnode">
+    </router-link>
     <ul>
       <li><a href="#">首页</a></li>
       <li><a href="#">新手入门</a></li>
@@ -24,9 +26,12 @@
     background: #444444
     display: flex
     justify-content: space-between
-    img
-      max-width: 120px
-      margin-left: 30px
+    a
+      display: flex
+      align-items: center
+      img
+        width: 120px
+        margin-left: 30px
     ul
       display: flex
       margin-right: 30px

@@ -64,8 +64,6 @@
 
 <style scoped lang="sass">
   .post
-    .loading
-      color: gold
 
     .postlist
       border-radius: 4px

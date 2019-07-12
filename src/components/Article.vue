@@ -32,7 +32,7 @@
           </router-link>
           <div class="reply-info">
             <div class="info-title">{{reply.author.loginname}} <span
-              class="reply-msg"><span>{{index + 1}}楼</span>*<span>{{reply.create_at | formatTime}}</span></span></div>
+              class="reply-msg"><span>{{index + 1}}楼</span>*<span>{{reply.create_at | formatTime}}</span></span><span class="like" v-if="reply.ups.length > 0">{{reply.ups.length}}个赞</span></div>
             <div class="reply-main" v-html="reply.content"></div>
           </div>
         </div>
@@ -117,12 +117,17 @@
         margin-right: 10px
 
       .reply-info
+        flex: 1
         .info-title
           font-size: 12px
           color: #333
-
+          position: relative
           .reply-msg
             color: #094e99
+          .like
+            position: absolute
+            top: 2px
+            right: 10px
 
         .reply-main
           margin-top: 10px
