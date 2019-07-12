@@ -35,28 +35,42 @@
         </li>
       </ul>
     </div>
+    <!-- 分页 -->
+    <pagination @listenPage="getPage"/>
   </div>
 </template>
 
 <script>
+  import pagination from './Pagination'
   export default {
     name: "PostList",
+    components: {pagination},
     data() {
       return {
         loadingShow: false,
-        postList: []
+        postList: [],
+        postPage: 1
       }
     },
     beforeMount() {
-      this.getPost().then(({data}) => {
-        this.postList = data.data;
-        this.loadingShow = false;
-      })
+      this.loadingShow = true;
+      this.getPost()
     },
     methods: {
       getPost() {
-        this.loadingShow = true;
-        return this.$axios.get('https://cnodejs.org/api/v1/topics?limit=20&page=1')
+        this.$axios.get('https://cnodejs.org/api/v1/topics',{
+          params: {
+            limit: 20,
+            page: this.postPage
+          }
+        }).then(({data}) => {
+          this.loadingShow = false;
+          this.postList = data.data;
+        })
+      },
+      getPage(value){
+        this.postPage = value;
+        this.getPost()
       }
     }
   }
