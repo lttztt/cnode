@@ -6,6 +6,7 @@ Vue.use(Router);
 import PostList from './components/PostList'
 import Article from './components/Article'
 import UserInfo from './components/UserInfo'
+import SideBar from './components/SideBar'
 export default new Router({
   routes: [
     {
@@ -16,10 +17,11 @@ export default new Router({
       }
     },
     {
-      path: '/topic/:id',
+      path: '/topic/:id&author=:name',
       name: 'article',
       components: {
-        main: Article
+        main: Article,
+        sideBar: SideBar
       }
     },
     {

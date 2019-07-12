@@ -50,6 +50,11 @@
         post: {}
       }
     },
+    watch:{
+      $route(to, from){
+        this.getArticleData();
+      }
+    },
     beforeMount() {
       this.loadingShow = true;
       this.getArticleData();
@@ -73,6 +78,9 @@
 
   .markdown-text > :last-child
     margin-bottom: 1em
+
+  .article
+    margin-right: 340px
 
   .article-header
     background-color: #fff

@@ -30,7 +30,7 @@
           <span :class="['topic-tab', {'top-tab': post.top}]">
             {{post | formatWord}}
           </span>
-          <router-link :to="{name:'article', params: {id: post.id}}" class="post-title">{{post.title}}</router-link>
+          <router-link :to="{name:'article', params: {id: post.id, name: post.author.loginname}}" class="post-title">{{post.title}}</router-link>
           <span class="last-active-time">{{post.last_reply_at | formatTime}}</span>
         </li>
       </ul>
@@ -64,7 +64,6 @@
 
 <style scoped lang="sass">
   .post
-
     .postlist
       border-radius: 4px
 
