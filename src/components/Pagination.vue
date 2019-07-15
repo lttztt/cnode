@@ -27,6 +27,7 @@
         this.currentPage = 1;
         this.buttons = [1, 2, 3, 4, 5, '...'];
         this.jduge = false
+        this.emitEvent();
       },
       nextPage() {
         if (this.currentPage === this.buttons[3]) {
