@@ -81,6 +81,8 @@
 
   .article
     margin-right: 340px
+    @media (max-width: 500px)
+      margin-right: 0
 
   .article-header
     background-color: #fff

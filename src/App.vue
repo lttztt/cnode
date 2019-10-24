@@ -22,4 +22,7 @@
     .main
       width: 80%
       margin: 20px auto
+      @media (max-width: 500px)
+        width: 95%
+        margin: 0 auto
 </style>

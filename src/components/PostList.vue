@@ -100,6 +100,12 @@
             margin: 0 10px
             font-size: 10px
             color: #b4b4b4
+            @media (max-width: 500px)
+              position: absolute
+              bottom: 3px
+              left: 100px
+              text-align: left
+              margin: 0
 
             .reply-count
               color: #9e78c0
@@ -117,6 +123,8 @@
             padding: 2px 4px
             border-radius: 3px
             font-size: 12px
+            @media (max-width: 500px)
+              flex-shrink: 0
 
           .topic-tab.top-tab
             background: #80bd01
@@ -128,6 +136,9 @@
             overflow: hidden
             white-space: nowrap
             text-overflow: ellipsis
+            @media (max-width: 500px)
+              max-width: 60%
+              align-self: start
 
     .postlist li:first-child
       border-top: none
@@ -145,10 +156,16 @@
           color: #80bd01
           padding: 3px 6px
           border-radius: 3px
+          @media (max-width: 500px)
+            flex-shrink: 0
+            padding: 0
 
           &.active
             background: #80bd01
             color: #fff
+            @media (max-width: 500px)
+              a
+                padding: 2px 6px
 
           a
             color: inherit

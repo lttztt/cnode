@@ -101,6 +101,12 @@
     float: right;
     margin-top: 0;
   }
+    @media (max-width: 500px){
+      .autherinfo{
+        width: auto;
+        float: none;
+      }
+    }
 
   li {
     padding: 3px 0;

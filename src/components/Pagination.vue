@@ -94,6 +94,9 @@
       bottom: 1px
       width: 40px
       margin: 0 4px
+      @media (max-width: 500px)
+        width: auto;
+        padding: 0 6px;
 
     .currentPage
       color: white

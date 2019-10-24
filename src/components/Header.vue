@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <router-link to="/">
+    <router-link to="/" class="logo">
       <img src="../assets/logo.svg" alt="cnode">
     </router-link>
     <ul>
@@ -22,10 +22,20 @@
 
 <style scoped lang="sass">
   .header
-    height: 60px
     background: #444444
     display: flex
     justify-content: space-between
+    @media (max-width: 500px)
+      flex-wrap: wrap
+    
+    .logo
+      margin-left: 30px
+      @media (max-width: 500px)
+        width: 100%
+      img
+        margin: 15px auto
+        @media (max-width: 500px)
+          margin: 5px auto
     a
       display: flex
       align-items: center
@@ -35,12 +45,18 @@
     ul
       display: flex
       margin-right: 30px
+      @media (max-width: 500px)
+        margin-right: 0
+        width: 100%
+        justify-content: center
       li
         margin: 10px
         display: flex
         justify-content: center
         align-items: center
+        flex-shrink: 0;
         a
           font-size: 14px
           color: #ccc
+
 </style>
